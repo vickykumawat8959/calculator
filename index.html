@@ -1,0 +1,80 @@
+<!DocType html>
+<html>
+    <Head>
+         <title>Simple Interest calculator</title>
+    </Head>
+    
+    <body>
+       
+            <div>
+            <h2>Simple Interest Calculator</h2>
+            <table>
+               <tbody>
+                   <tr>
+                       <td><label>Amount:</label></td>
+                       <td>
+                           <input type="text" placeholder="amount" id="principalAmountID">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td><label>Interest Rate:</label></td>
+                       <td>
+                           <input type="text" name="interestrate" id="interestRateID">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td><label>Time(In year):</label></td>
+                       <td>
+                           <input type="text" name="timePeriod" id="timePeriodID">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td></td>
+                       <td>
+                           <input onclick="getInterest()" type="submit" name="Submit" value="Submit">
+                       </td>
+                   </tr>
+                </tbody>
+            </table>
+            
+           </div>
+        
+        
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Principle</th>
+                        <th>Total Amount</th>
+                    </tr>
+                    <tr>
+                        <td id="principle"></td>
+                        <td id="totalAmount"></td>
+                    </tr>
+                    <tr>
+                        <td><div style="background-color: red;width:40px;height: 100px"></div></td>
+                        <td><div style="background-color: green;width: 40px;height: 0" id="height_after"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <script>
+       let getInterest = function(){
+           let amount = principalAmountID.value;
+           let interestRate = interestRateID.value * 0.01;
+           let period = timePeriodID.value;
+           
+          let totalAmount = Math.round(amount * (1 + interestRate * period))
+         
+          //let totalAmount = Math.round(amount * (1 + interestRate * period));
+           let height = totalAmount/amount * 100 + 'px';
+            document.getElementById('principle').innerHTML = amount;
+           document.getElementById('totalAmount').innerHTML = totalAmount;
+           document.getElementById('height_after').style.height = height;
+           
+       }
+    </script>
+    
+    </body>
+</html>
